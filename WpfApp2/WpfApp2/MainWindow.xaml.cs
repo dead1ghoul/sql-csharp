@@ -22,6 +22,7 @@ namespace WpfApp2
     {
         public MainWindow()
         {
+            //кто прочитал тот лошок
             InitializeComponent();
         }
     }
