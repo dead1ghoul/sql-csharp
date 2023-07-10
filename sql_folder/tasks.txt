@@ -1,1 +1,11 @@
-﻿
+﻿INSERT INTO tasks (category, name, due_date, weight) 
+  VALUES ('database','ch_1-5','2021-09-15','0.1');
+INSERT INTO tasks (category, name, due_date, weight) 
+  VALUES ('enegro_counter','ch_6-10','2021-10-15','0.1');
+INSERT INTO tasks (category, name, due_date, weight) 
+  VALUES ('exam,midterm','2021-11-01','0.2');
+INSERT INTO tasks (category, name, due_date, weight) 
+  VALUES ('pet_project','2021-12-01','0.25');
+INSERT INTO tasks (category, name, due_date, weight) 
+  VALUES ('exam,final','2022-01-15','0.35');
+

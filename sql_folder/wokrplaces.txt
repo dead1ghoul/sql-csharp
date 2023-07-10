@@ -1,1 +1,14 @@
-﻿
+﻿INSERT INTO workplaces (position) 
+  VALUES ( 'KBSI');
+INSERT INTO workplaces (position)
+  VALUES ( 'KBBK');
+INSERT INTO workplaces (position) 
+  VALUES ( 'KBAA');
+INSERT INTO workplaces (position) 
+  VALUES ( 'KBAD');
+INSERT INTO workplaces (position) 
+  VALUES ( 'KBAS');
+INSERT INTO workplaces (position) 
+  VALUES ( 'KBIQ');
+INSERT INTO workplaces (position) 
+  VALUES ( 'KBIT');

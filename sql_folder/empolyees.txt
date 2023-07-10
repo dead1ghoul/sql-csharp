@@ -1,1 +1,23 @@
-﻿
+﻿INSERT INTO employees (fio, adress,  mobile_num) 
+  VALUES ( 'Вольный Иван Николаевич','Новоизмаловский пр 16 к11','3(27)494-06-38');
+INSERT INTO employees (fio, adress,  mobile_num) 
+  VALUES ( 'Ворнов Валерий Новосибирович','Новоизмаловский пр 16 к10','334(877)733-03-51');
+INSERT INTO employees (fio, adress,  mobile_num) 
+  VALUES ( 'Пупкин Василий Иванович','Новоизмаловский пр 16 к9','61(9357)518-24-71');
+INSERT INTO employees (fio, adress,  mobile_num) 
+  VALUES ( 'Теребиев Ашот Магомедович','Новоизмаловский пр 16 к8','062(3911)416-92-06');
+INSERT INTO employees (fio, adress,  mobile_num) 
+  VALUES ( 'Другалечков Артем Святославович','Новоизмаловский пр 16 к7','75(3268)409-12-82');
+INSERT INTO employees (fio, adress,  mobile_num) 
+  VALUES ( 'Афанасьев Александр Алексеевич','Новоизмаловский пр 16 к6','012(24)769-79-93');
+INSERT INTO employees (fio, adress,  mobile_num) 
+  VALUES ( 'Порфирьев Володимир Алёнович','Новоизмаловский пр 16 к5','7(1027)619-53-13');
+INSERT INTO employees (fio, adress,  mobile_num) 
+  VALUES ( 'Чикибамбони Эдгар Эдуардович','Новоизмаловский пр 16 к4','04(2417)837-52-78');
+INSERT INTO employees (fio, adress,  mobile_num) 
+  VALUES ( 'Жибилов Акакий Акакиевич','Новоизмаловский пр 16 к3','58(5044)642-95-56');
+INSERT INTO employees (fio, adress,  mobile_num) 
+  VALUES ( 'Минаев Георгий Владмирович','Новоизмаловский пр 16 к2','04(5553)810-09-96');
+INSERT INTO employees (fio, adress,  mobile_num) 
+  VALUES ( 'Касилов Владимир Баракович','Новоизмаловский пр 16 к1','135(314)634-90-66');
+

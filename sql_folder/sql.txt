@@ -1,1 +1,50 @@
-﻿
+﻿DROP TABLE IF EXISTS workplaces CASCADE;
+
+CREATE TABLE workplaces (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    position VARCHAR(100)
+);
+
+
+
+DROP TABLE IF EXISTS employees CASCADE;
+
+CREATE TABLE employees (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    workplace_id INT,
+	fio VARCHAR(100),
+	adress VARCHAR(100),
+	mobile_num VARCHAR(30),
+    CONSTRAINT fk_workplaces
+        FOREIGN KEY(workplace_id)
+        REFERENCES workplaces(id)
+);
+
+
+
+
+
+DROP TABLE IF EXISTS tasks CASCADE;
+
+CREATE TABLE tasks (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR(20),
+    name VARCHAR(200),
+    due_date DATE,
+    weight FLOAT
+);
+
+DROP TABLE IF EXISTS stage CASCADE;
+
+CREATE TABLE stage (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    task_id INT,
+    score INT,
+	employee_id INT,
+    CONSTRAINT fk_tasks
+        FOREIGN KEY(task_id)
+        REFERENCES tasks(id),
+    CONSTRAINT fk_employee
+        FOREIGN KEY(employee_id)
+        REFERENCES employees(id)
+);
