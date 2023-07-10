@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Npgsql;
 
 namespace WpfApp2
 {
@@ -22,8 +23,31 @@ namespace WpfApp2
     {
         public MainWindow()
         {
-            //кто прочитал тот лошок
             InitializeComponent();
+
         }
+
+        private void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void StopButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+    //    string host = DatabaseAddressTextBox.Text;
+    //    string port = PortTextBox.Text;
+    //    string username = UsernameTextBox.Text;
+    //    string password = PasswordBox.Text;
+
+    //    string connString = $"Host={host};" +
+    //        $"Port={port};" +
+    //        $"Username={username};" +
+    //        $"Password={password};" +
+    //        $"Database=<имя_базы_данных>;";
+
     }
 }
