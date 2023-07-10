@@ -29,7 +29,12 @@ namespace WpfApp2
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            string host = DatabaseAddressTextBox.Text;
+            string port = PortTextBox.Text;
+            string username = UsernameTextBox.Text;
+            string password = PasswordBox.Text;
 
+            string connString = $"Host={host};Port={port};Username={username};Password={password};Database=<имя_базы_данных>;";
         }
 
         private void StopButton_Click(object sender, RoutedEventArgs e)

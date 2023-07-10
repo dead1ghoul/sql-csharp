@@ -16,7 +16,7 @@
             <TextBox x:Name="UsernameTextBox"/>
 
             <TextBlock Text="Password:" Foreground="#FF120085" FontFamily="Showcard Gothic"/>
-            <PasswordBox x:Name="PasswordBox"/>
+            <TextBox x:Name="PasswordBox"/>
 
             <TextBlock Text="Database Address:" Foreground="Red" FontFamily="Showcard Gothic"/>
             <TextBox x:Name="DatabaseAddressTextBox"/>
