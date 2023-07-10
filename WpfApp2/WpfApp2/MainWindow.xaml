@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="512" Width="512">
     <Grid>
-        кто прочитал тот лошок попущенный
+        <Image Source="images/multicolour_cloud_pileus_in_the_form_of_a_person_sitting_at_a_computer_and_rainbow__3276095014 (1).png" Stretch="Fill"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Port:" Foreground="#FF00FF0C" FontFamily="Showcard Gothic"/>
+            <TextBox x:Name="PortTextBox"/>
+
+            <TextBlock Text="Username:" Foreground="#FFB900FF" FontFamily="Showcard Gothic"/>
+            <TextBox x:Name="UsernameTextBox"/>
+
+            <TextBlock Text="Password:" Foreground="#FF120085" FontFamily="Showcard Gothic"/>
+            <PasswordBox x:Name="PasswordBox"/>
+
+            <TextBlock Text="Database Address:" Foreground="Red" FontFamily="Showcard Gothic"/>
+            <TextBox x:Name="DatabaseAddressTextBox"/>
+
+            <Button x:Name="StartButton" Content="Start" Click="StartButton_Click" FontFamily="Showcard Gothic"/>
+            <Button x:Name="StopButton" Content="Stop" Click="StopButton_Click" FontFamily="Showcard Gothic"/>
+        </StackPanel>
+       
     </Grid>
 </Window>
