@@ -32,9 +32,9 @@ namespace WpfApp2
             string host = DatabaseAddressTextBox.Text;
             string port = PortTextBox.Text;
             string username = UsernameTextBox.Text;
-            string password = PasswordBox.Text;
-
-            string connString = $"Host={host};Port={port};Username={username};Password={password};Database=<имя_базы_данных>;";
+            string password = PasswordBox.Password;
+            string db_name = "postgres";
+            string connString = $"Host={host};Port={port};Username={username};Password={password};Database={db_name};";
         }
 
         private void StopButton_Click(object sender, RoutedEventArgs e)
@@ -42,17 +42,37 @@ namespace WpfApp2
 
         }
 
+        private void SelectAllUsers_Click(object sender, RoutedEventArgs e)
+        {
 
-    //    string host = DatabaseAddressTextBox.Text;
-    //    string port = PortTextBox.Text;
-    //    string username = UsernameTextBox.Text;
-    //    string password = PasswordBox.Text;
+        }
 
-    //    string connString = $"Host={host};" +
-    //        $"Port={port};" +
-    //        $"Username={username};" +
-    //        $"Password={password};" +
-    //        $"Database=<имя_базы_данных>;";
+        private void InsertUser_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UpdateUser_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteUser_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void QueryButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewForm newForm = new NewForm();
+            newForm.Show();
+        }
+
+        //private void QueryButton_Click(Object sender, EventArgs e)
+        //{
+        //    NewForm myForm = new NewForm();
+        //    myForm.Show();
+        //}
 
     }
 }

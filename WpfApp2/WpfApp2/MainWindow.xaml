@@ -5,25 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="512" Width="512">
-    <Grid>
+        Title="Database Server Load Checking Utility" Height="512" Width="512">
+    <Grid VerticalAlignment="Top">
         <Image Source="images/multicolour_cloud_pileus_in_the_form_of_a_person_sitting_at_a_computer_and_rainbow__3276095014 (1).png" Stretch="Fill"/>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Port:" Foreground="#FF00FF0C" FontFamily="Showcard Gothic"/>
-            <TextBox x:Name="PortTextBox"/>
+            <TextBlock Text="Port:" Foreground="#FF2D8579" FontFamily="Showcard Gothic"/>
+            <TextBox x:Name="PortTextBox" BorderBrush="#FF6B17FF"/>
 
             <TextBlock Text="Username:" Foreground="#FFB900FF" FontFamily="Showcard Gothic"/>
-            <TextBox x:Name="UsernameTextBox"/>
+            <TextBox x:Name="UsernameTextBox" BorderBrush="#FF6B17FF"/>
 
             <TextBlock Text="Password:" Foreground="#FF120085" FontFamily="Showcard Gothic"/>
-            <TextBox x:Name="PasswordBox"/>
+            <PasswordBox x:Name="PasswordBox" BorderBrush="#FF6B17FF" FontFamily="ms-appx:///Assets/PassDot.ttf#PassDot"/>
 
             <TextBlock Text="Database Address:" Foreground="Red" FontFamily="Showcard Gothic"/>
-            <TextBox x:Name="DatabaseAddressTextBox"/>
+            <TextBox x:Name="DatabaseAddressTextBox" Foreground="Black" BorderBrush="#FF6B17FF"/>
 
-            <Button x:Name="StartButton" Content="Start" Click="StartButton_Click" FontFamily="Showcard Gothic"/>
-            <Button x:Name="StopButton" Content="Stop" Click="StopButton_Click" FontFamily="Showcard Gothic"/>
+            <Button x:Name="StartButton" Content="Start" Click="StartButton_Click" FontFamily="Showcard Gothic" Background="#FF49BF5E"/>
+            <Button x:Name="StopButton" Content="Stop" Click="StopButton_Click" FontFamily="Showcard Gothic" Background="#FFE22F2F" BorderBrush="#FFA22020"/>
+
         </StackPanel>
+
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <Button Content="Select All Users" Click="SelectAllUsers_Click"/>
+            <Button Content="Insert User" Click="InsertUser_Click"/>
+            <Button Content="Update User" Click="UpdateUser_Click"/>
+            <Button Content="Delete User" Click="DeleteUser_Click"/>
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right">
+
+            <Button x:Name="QueryButton" Content="Queries" Click="QueryButton_Click" FontFamily="Showcard Gothic" Background="#FF49BF5E"/>
+
+        </StackPanel>
+
        
+        
+
     </Grid>
 </Window>
