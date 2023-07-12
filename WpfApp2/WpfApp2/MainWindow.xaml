@@ -22,22 +22,21 @@
             <TextBox x:Name="DatabaseAddressTextBox" Foreground="Black" BorderBrush="#FF6B17FF"/>
 
             <Button x:Name="StartButton" Content="Start" Click="StartButton_Click" FontFamily="Showcard Gothic" Background="#FF49BF5E"/>
-            <Button x:Name="StopButton" Content="Stop" Click="StopButton_Click" FontFamily="Showcard Gothic" Background="#FFE22F2F" BorderBrush="#FFA22020"/>
 
         </StackPanel>
 
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
+        <!--<StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <Button Content="Select All Users" Click="SelectAllUsers_Click"/>
             <Button Content="Insert User" Click="InsertUser_Click"/>
             <Button Content="Update User" Click="UpdateUser_Click"/>
             <Button Content="Delete User" Click="DeleteUser_Click"/>
-        </StackPanel>
+        </StackPanel>-->
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right">
+        <!--<StackPanel VerticalAlignment="Center" HorizontalAlignment="Right">
 
             <Button x:Name="QueryButton" Content="Queries" Click="QueryButton_Click" FontFamily="Showcard Gothic" Background="#FF49BF5E"/>
 
-        </StackPanel>
+        </StackPanel>-->
 
        
         

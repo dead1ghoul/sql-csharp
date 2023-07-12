@@ -29,17 +29,21 @@ namespace WpfApp2
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            string host = DatabaseAddressTextBox.Text;
-            string port = PortTextBox.Text;
-            string username = UsernameTextBox.Text;
-            string password = PasswordBox.Password;
-            string db_name = "postgres";
-            string connString = $"Host={host};Port={port};Username={username};Password={password};Database={db_name};";
-        }
-
-        private void StopButton_Click(object sender, RoutedEventArgs e)
-        {
-
+            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder();
+            builder.Host = DatabaseAddressTextBox.Text;
+            builder.Port = 5432;
+            builder.Username = UsernameTextBox.Text;
+            builder.Password = PasswordBox.Password;
+            builder.Database = "postgres";
+            string connString = builder.ConnectionString;
+            builder.MaxPoolSize = 10;//count of flows
+            
+            NpgsqlConnection connection = new NpgsqlConnection(connString);
+            connection.Open();
+            string query = "SELECT COUNT(*) FROM employees";
+            NpgsqlCommand command = new NpgsqlCommand(query, connection);
+            //int activeConnections = (int)command.ExecuteScalar();
+            connection.Close();
         }
 
         private void SelectAllUsers_Click(object sender, RoutedEventArgs e)
@@ -64,15 +68,7 @@ namespace WpfApp2
 
         private void QueryButton_Click(object sender, RoutedEventArgs e)
         {
-            NewForm newForm = new NewForm();
-            newForm.Show();
+
         }
-
-        //private void QueryButton_Click(Object sender, EventArgs e)
-        //{
-        //    NewForm myForm = new NewForm();
-        //    myForm.Show();
-        //}
-
     }
 }
