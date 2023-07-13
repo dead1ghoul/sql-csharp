@@ -26,10 +26,12 @@ namespace WpfApp2
             InitializeComponent();
 
         }
+        public string ConnectionString { get; set; }
+        public NpgsqlConnectionStringBuilder builder;
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder();
+            builder = new NpgsqlConnectionStringBuilder();
             builder.Host = DatabaseAddressTextBox.Text;
             builder.Port = 5432;
             builder.Username = UsernameTextBox.Text;
@@ -37,37 +39,12 @@ namespace WpfApp2
             builder.Database = "postgres";
             string connString = builder.ConnectionString;
             builder.MaxPoolSize = 10;//count of flows
-            
-            NpgsqlConnection connection = new NpgsqlConnection(connString);
-            connection.Open();
-            string query = "SELECT COUNT(*) FROM employees";
-            NpgsqlCommand command = new NpgsqlCommand(query, connection);
-            //int activeConnections = (int)command.ExecuteScalar();
-            connection.Close();
-        }
 
-        private void SelectAllUsers_Click(object sender, RoutedEventArgs e)
-        {
+            ConnectionString = connString;
 
-        }
-
-        private void InsertUser_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void UpdateUser_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void DeleteUser_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void QueryButton_Click(object sender, RoutedEventArgs e)
-        {
+            var Page2 = new Window1(); //create your new form.
+            Page2.ConnString = this.ConnectionString;
+            Page2.Show();
 
         }
     }
