@@ -45,7 +45,7 @@ namespace WpfApp2
             var Page2 = new Window1(); //create your new form.
             Page2.ConnString = this.ConnectionString;
             Page2.Show();
-
+            Close();
         }
     }
 }

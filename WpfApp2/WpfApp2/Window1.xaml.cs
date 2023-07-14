@@ -41,18 +41,36 @@ namespace WpfApp2
 
                 var sw = new Stopwatch();
                 sw.Start();
+
+               
+
                 NpgsqlCommand command = new NpgsqlCommand(query, connection);
                 try
                 {
-                    command.ExecuteNonQuery();
+                    connection.Open();
+                    NpgsqlDataReader reader = command.ExecuteReader();
                     sw.Stop();
-                    ResponseTextBox.Text = $"выполнено за {sw.ElapsedMilliseconds / 1000} секунд";
+                    ResponseTextBox.Text = $"выполнено за {sw.ElapsedMilliseconds / 1000.0} секунд" + "\n";
+
+                    while (reader.Read())
+                    {
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            ResponseTextBox.Text += reader[i].ToString() + "\t";
+                        }
+                        ResponseTextBox.Text += "\n";
+                    }
+
+                    connection.Close();
                 }
-                catch
+                catch (Exception ex)
                 {
                     sw.Stop();
-                    ResponseTextBox.Text = $"невалидный запрос";
+                    ResponseTextBox.Text = $"Ошибка выполнения запроса: {ex.Message}";
+                    connection.Close();
                 }
+
+                
             }
 
         }
@@ -60,6 +78,8 @@ namespace WpfApp2
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             Close();
+            var Page1 = new MainWindow();
+            Page1.Show();
         }
 
     }
