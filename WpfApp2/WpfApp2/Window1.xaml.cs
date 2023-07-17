@@ -24,7 +24,9 @@ namespace WpfApp2
     public partial class Window1 : Window
     {
         public string ConnString;
-      
+
+        private List<long> executionTimes = new List<long>();
+
         public Window1()
         {
             InitializeComponent();
@@ -50,6 +52,9 @@ namespace WpfApp2
                     connection.Open();
                     NpgsqlDataReader reader = command.ExecuteReader();
                     sw.Stop();
+                    long executionTime = sw.ElapsedMilliseconds;
+                    executionTimes.Add(executionTime);
+
                     ResponseTextBox.Text = $"выполнено за {sw.ElapsedMilliseconds / 1000.0} секунд" + "\n";
 
                     while (reader.Read())
@@ -69,17 +74,38 @@ namespace WpfApp2
                     ResponseTextBox.Text = $"Ошибка выполнения запроса: {ex.Message}";
                     connection.Close();
                 }
-
-                
             }
+            // Вывод статистики
+            long maxExecutionTime = executionTimes.Max();
+            long minExecutionTime = executionTimes.Min();
+            long medianExecutionTime = CalculateMedian(executionTimes);
 
+            StatisticsTextBox.Text = $"Максимальное время выполнения: {maxExecutionTime} миллисекунд\n" +
+                                     $"Минимальное время выполнения: {minExecutionTime} миллисекунд\n" +
+                                     $"Медианное время выполнения: {medianExecutionTime} миллисекунд";
         }
+
+        private long CalculateMedian(List<long> values)
+        {
+            values.Sort();
+            int count = values.Count;
+            if (count % 2 == 0)
+            {
+                return (values[count / 2 - 1] + values[count / 2]) / 2;
+            }
+            else
+            {
+                return values[count / 2];
+            }
+        }
+
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            Close();
             var Page1 = new MainWindow();
             Page1.Show();
+            Close();  
+           
         }
 
     }
