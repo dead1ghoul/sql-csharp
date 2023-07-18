@@ -6,6 +6,8 @@ using System.Windows;
 using Npgsql;
 using System.IO;
 using System.Text;
+using OxyPlot;
+using OxyPlot.Series;
 
 namespace WpfApp2
 {
@@ -14,15 +16,7 @@ namespace WpfApp2
     /// </summary>
     public partial class Window1 : Window
     {
-        //static void Main(string[] args)
-        //{
-        //    if (args.Length == 0)
-        //    {
-        //        Console.WriteLine("Usage: ConsoleApp <connectionString> <query>");
-        //        return;
-        //    }
-
-        //}
+       
         public string ConnString;
 
         private List<long> executionTimes = new List<long>();
@@ -89,6 +83,22 @@ namespace WpfApp2
             StatisticsTextBox.Text = $"Максимальное время выполнения: {maxExecutionTime} миллисекунд\n" +
                                      $"Минимальное время выполнения: {minExecutionTime} миллисекунд\n" +
                                      $"Медианное время выполнения: {medianExecutionTime} миллисекунд";
+
+            // Создание модели графика
+            var model = new PlotModel { Title = "Execution Time" };
+
+            // Создание серии данных
+            var series = new LineSeries();
+            for (int i = 0; i < executionTimes.Count; i++)
+            {
+                series.Points.Add(new DataPoint(i, executionTimes[i]));
+            }
+
+            // Добавление серии данных в модель графика
+            model.Series.Add(series);
+
+            // Привязка модели графика к элементу PlotView
+            ExecutionTimePlot.Model = model;
         }
 
         private long CalculateMedian(List<long> values)
@@ -113,6 +123,8 @@ namespace WpfApp2
             Close();  
            
         }
+
+
 
     }
 }

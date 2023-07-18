@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
+        xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
-        Title="QueryWindow" Height="512" Width="512">
+        Title="QueryWindow" Height="1024" Width="1024">
 
     <Grid>
         <Grid.Effect>
@@ -13,18 +14,20 @@
         </Grid.Effect>
 
 
-        <TextBlock Text="Enter the query here:" Foreground="#FF2A4BDE" FontFamily="Showcard Gothic" Margin="10,0,348,462"/>
-        <TextBox x:Name="QueryTextBox" BorderBrush="#FF6B17FF" Margin="10,19,10,361"/>
+        <TextBlock Text="Enter the query here:" Foreground="#FF2A4BDE" FontFamily="Showcard Gothic" Margin="10,0,836,974"/>
+        <TextBox x:Name="QueryTextBox" BorderBrush="#FF6B17FF" Margin="10,19,10,868" Width="1000" Height="100"/>
 
-        <Button x:Name="ExecuteButton" Content="Execute" Click="ExecuteQuery_Click" FontFamily="Showcard Gothic" Background="#FF49BF5E" Width="100" Height="25" HorizontalAlignment="Center" Margin="394,125,10,331"/>
+        <Button x:Name="ExecuteButton" Content="Execute" Click="ExecuteQuery_Click" FontFamily="Showcard Gothic" Background="#FF49BF5E" Width="120"  Margin="886,127,10,835"/>
 
-        <TextBlock Text="Check the response here:" Foreground="#FF2A4BDE" FontFamily="Showcard Gothic" Margin="10,142,266,319"/>
-        <TextBox x:Name="ResponseTextBox" BorderBrush="#FF6B17FF" Margin="10,164,14,192" RenderTransformOrigin="0.5,-0.247" Height="120"/>
+        <TextBlock Text="Check the response here:" Foreground="#FF2A4BDE" FontFamily="Showcard Gothic" Margin="10,142,836,830"/>
+        <TextBox x:Name="ResponseTextBox" BorderBrush="#FF6B17FF" Margin="10,163,14,706" RenderTransformOrigin="0.5,-0.247" Width="1000" Height="125"/>
 
         <Button x:Name="BackButton" Content="Exit" Click="Back_Click" FontFamily="Showcard Gothic" Background="#FFA40404" HorizontalAlignment="Center" Height="25" Width="100" VerticalAlignment="Bottom"/>
 
-        <TextBlock Text="Check the statictics here:" Foreground="#FF2A4BDE" FontFamily="Showcard Gothic" Margin="10,292,252,165"/>
-        <TextBox x:Name="StatisticsTextBox" BorderBrush="#FF6B17FF" Margin="10,305,14,39" Height="120"/>
+        <TextBlock Text="Check the statictics here:" Foreground="#FF2A4BDE" FontFamily="Showcard Gothic" Margin="10,292,836,679"/>
+        <TextBox x:Name="StatisticsTextBox" BorderBrush="#FF6B17FF" Margin="10,314,14,549" Width="1000" Height="125"/>
 
+        <TextBlock Text="Check the graph here:" Foreground="#FF2A4BDE" FontFamily="Showcard Gothic" Margin="10,461,836,508"/>
+        <oxy:PlotView x:Name="ExecutionTimePlot" Margin="10,490,10,30" Width="1000" Height="450" />
     </Grid>
 </Window>
