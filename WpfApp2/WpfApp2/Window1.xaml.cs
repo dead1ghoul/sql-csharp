@@ -1,20 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Npgsql;
-using WpfApp2;
+using System.IO;
+using System.Text;
 
 namespace WpfApp2
 {
@@ -23,6 +14,15 @@ namespace WpfApp2
     /// </summary>
     public partial class Window1 : Window
     {
+        //static void Main(string[] args)
+        //{
+        //    if (args.Length == 0)
+        //    {
+        //        Console.WriteLine("Usage: ConsoleApp <connectionString> <query>");
+        //        return;
+        //    }
+
+        //}
         public string ConnString;
 
         private List<long> executionTimes = new List<long>();
@@ -40,12 +40,8 @@ namespace WpfApp2
 
             using (NpgsqlConnection connection = new NpgsqlConnection(connString))
             {
-
                 var sw = new Stopwatch();
                 sw.Start();
-
-               
-
                 NpgsqlCommand command = new NpgsqlCommand(query, connection);
                 try
                 {
@@ -75,6 +71,16 @@ namespace WpfApp2
                     connection.Close();
                 }
             }
+
+            // Запись результатов в текстовый журнал
+            string logPath = "C:/Users/KasilovVD/source/repos/WpfApp2/log.txt";
+            using (StreamWriter writer = new StreamWriter(logPath, true))
+            {
+                writer.WriteLine($"Запрос: {query}");
+                writer.WriteLine($"Время выполнения: {executionTimes.Average()} мс");
+                writer.WriteLine();
+            }
+
             // Вывод статистики
             long maxExecutionTime = executionTimes.Max();
             long minExecutionTime = executionTimes.Min();
@@ -98,7 +104,7 @@ namespace WpfApp2
                 return values[count / 2];
             }
         }
-
+    
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {

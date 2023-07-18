@@ -5,18 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="QueryWindow" Height="450" Width="450">
+        Title="QueryWindow" Height="512" Width="512">
+
     <Grid>
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="50"/>
+        </Grid.Effect>
 
-        <TextBlock Text="Enter the query here:" Foreground="#FF2A4BDE" FontFamily="Showcard Gothic"/>
-        <TextBox x:Name="QueryTextBox" BorderBrush="#FF6B17FF" Margin="10,19,10,223"/>
 
-        <Button x:Name="ExecuteButton" Content="Execute" Click="ExecuteQuery_Click" FontFamily="Showcard Gothic" Background="#FF49BF5E" Width="100" Height="25" HorizontalAlignment="Center"/>
+        <TextBlock Text="Enter the query here:" Foreground="#FF2A4BDE" FontFamily="Showcard Gothic" Margin="10,0,348,462"/>
+        <TextBox x:Name="QueryTextBox" BorderBrush="#FF6B17FF" Margin="10,19,10,361"/>
 
-        <TextBlock Text="Check the response here:" Foreground="#FF2A4BDE" FontFamily="Showcard Gothic" Margin="0,231,0,159"/>
-        <TextBox x:Name="ResponseTextBox" BorderBrush="#FF6B17FF" Margin="10,260,10,41"/>
+        <Button x:Name="ExecuteButton" Content="Execute" Click="ExecuteQuery_Click" FontFamily="Showcard Gothic" Background="#FF49BF5E" Width="100" Height="25" HorizontalAlignment="Center" Margin="394,125,10,331"/>
+
+        <TextBlock Text="Check the response here:" Foreground="#FF2A4BDE" FontFamily="Showcard Gothic" Margin="10,142,266,319"/>
+        <TextBox x:Name="ResponseTextBox" BorderBrush="#FF6B17FF" Margin="10,164,14,192" RenderTransformOrigin="0.5,-0.247" Height="120"/>
 
         <Button x:Name="BackButton" Content="Exit" Click="Back_Click" FontFamily="Showcard Gothic" Background="#FFA40404" HorizontalAlignment="Center" Height="25" Width="100" VerticalAlignment="Bottom"/>
+
+        <TextBlock Text="Check the statictics here:" Foreground="#FF2A4BDE" FontFamily="Showcard Gothic" Margin="10,292,252,165"/>
+        <TextBox x:Name="StatisticsTextBox" BorderBrush="#FF6B17FF" Margin="10,305,14,39" Height="120"/>
 
     </Grid>
 </Window>
